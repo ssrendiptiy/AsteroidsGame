@@ -39,9 +39,4 @@ class Spaceship extends Floater
     myCenterX = (double)(Math.random()*(width));
     myCenterY = (double)(Math.random()*(height));
   }
-  
-   public void brs(){
-    myXspeed = 0;
-    myYspeed = 0;
-  }
 }
