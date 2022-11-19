@@ -52,22 +52,3 @@ public void keyReleased()
     Boo.setSpdY(0.0);
   } 
 }
-
-/*public void keyPressed()
-{
-  if(keyPressed){
-    if(key == 'd'){
-      Boo.turn(30.0);
-    } else if(key == 'a'){
-      Boo.turn(-30.0);
-    } else if(key == 'w'){
-      Boo.accelerate(.5);
-    } else if(key == 's'){
-      Boo.deccelerate(.5);
-    } else if(key == 'e'){
-      Boo.hyperspace();
-    } else if(key == 'q'){
-      Boo.brs();
-    }
-  }
-}*/
