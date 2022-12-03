@@ -1,11 +1,16 @@
-Spaceship Boo = new Spaceship();
+Spaceship Boo;
 Star[] tao = new Star[300];
-
+ArrayList <Asteroid> hu;
 public void setup(){
   size(1000, 800);
+  Boo = new Spaceship();
+  hu = new ArrayList <Asteroid>();
   for(int i = 0; i < tao.length; i++)
   {
     tao[i] = new Star();
+  }
+  for(int i = 0; i < 6; i++){
+    hu.add(new Asteroid());
   }
 }
 
@@ -16,6 +21,15 @@ public void draw(){
   for(int i = 0; i < tao.length; i++)
   {
     tao[i].show();
+  }
+  for(int i = 0; i < hu.size(); i++)
+  {
+    hu.get(i).show();
+    hu.get(i).move();
+    float d = dist((float)Boo.getX(), (float)Boo.getY(), (float)hu.get(i).getCenterX(), (float)hu.get(i).getCenterY());
+    if(d < 50){
+      hu.remove(i);
+    }
   }
 }
 
