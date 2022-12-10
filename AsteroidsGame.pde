@@ -1,5 +1,6 @@
 Spaceship Boo;
 Star[] tao = new Star[300];
+ArrayList <Bullet> Homa = new ArrayList <Bullet>();
 ArrayList <Asteroid> hu;
 public void setup(){
   size(1000, 800);
@@ -18,6 +19,20 @@ public void draw(){
   background(0);
   Boo.show();
   Boo.move();
+  for(int i = 0; i < Homa.size(); i++){
+    Homa.get(i).show();
+    Homa.get(i).move();
+    for(int k = 0; k < hu.size(); k++){
+      float d = dist((float)Homa.get(i).getX(), (float)Homa.get(i).getY(), (float)hu.get(k).getCenterX(), (float)hu.get(k).getCenterY());
+      if(d < 50){
+        Homa.remove(i);
+        hu.remove(k);
+        break;
+      }
+    }
+  }
+
+  
   for(int i = 0; i < tao.length; i++)
   {
     tao[i].show();
@@ -47,7 +62,9 @@ public void keyPressed()
     Boo.deccelerate(10.0);
   } else if(key == 'e'){
     Boo.hyperspace();
-  } 
+  } else if(key == 'q'){
+    Homa.add(new Bullet(Boo));
+  }
 }
 
 public void keyReleased()
@@ -64,5 +81,7 @@ public void keyReleased()
   }else if(key == 's'){
     Boo.setSpdX(0.0);
     Boo.setSpdY(0.0);
-  } 
+  }else if(key == 'q'){
+    Homa.add(new Bullet(Boo));
+  }
 }
